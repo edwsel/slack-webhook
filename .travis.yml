@@ -8,6 +8,7 @@ language: go
 # updates. Any older versions be considered deprecated. Don't bother testing
 # with them.
 go:
+  - 1.10.x
   - 1.9.x
   - 1.x
 
@@ -30,11 +31,13 @@ notifications:
 # ...and adding this to your Gopkg.toml file.
 #   required = ["github.com/golangci/golangci-lint/cmd/golangci-lint"]
 before_script:
-  - go install ./vendor/github.com/golangci/golangci-lint/cmd/golangci-lint
+  # Setup dependency management tool
+  - curl -L -s https://github.com/golang/dep/releases/download/v0.3.1/dep-linux-amd64 -o $GOPATH/bin/dep
+  - chmod +x $GOPATH/bin/dep
 
 # script always runs to completion (set +e). If we have linter issues AND a
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
 script:
-  - golangci-lint run       # run a bunch of code checkers/linters in parallel
+  - dep ensure # Run getting dependencies
   - go test -v -race ./...  # Run all the tests with the race detector enabled
