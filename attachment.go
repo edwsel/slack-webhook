@@ -21,8 +21,8 @@ type Attachment struct {
 	Ts             int      `json:"ts,omitempty"`
 }
 
-func NewAttachment(title string) Attachment {
-	return Attachment{
+func NewAttachment(title string) *Attachment {
+	return &Attachment{
 		Title: title,
 	}
 }

@@ -7,8 +7,8 @@ type Message struct {
 	Attachments []Attachment `json:"attachments,omitempty"`
 }
 
-func NewMessage(text string) Message {
-	return Message{Text: text}
+func NewMessage(text string) *Message {
+	return &Message{Text: text}
 }
 
 func (message *Message) SetText(text string) *Message {

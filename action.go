@@ -15,8 +15,8 @@ type Action struct {
 	Options []Option `json:"options,omitempty"`
 }
 
-func NewAction(name, text, typeAction string) Action {
-	return Action{
+func NewAction(name, text, typeAction string) *Action {
+	return &Action{
 		Name:name,
 		Text:text,
 		Type:typeAction,

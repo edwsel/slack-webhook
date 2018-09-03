@@ -5,8 +5,8 @@ type Option struct {
 	Value string `json:"value,omitempty"`
 }
 
-func NewOption(text, value string) Option {
-	return Option{
+func NewOption(text, value string) *Option {
+	return &Option{
 		Text: text,
 		Value: value,
 	}

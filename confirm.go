@@ -7,8 +7,8 @@ type Confirm struct {
 	DismissText string `json:"dismiss_text,omitempty"`
 }
 
-func NewConfirm(text string) Confirm {
-	return Confirm{
+func NewConfirm(text string) *Confirm {
+	return &Confirm{
 		Text: text,
 	}
 }

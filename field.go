@@ -6,8 +6,8 @@ type Field struct {
 	Short bool   `json:"short,omitempty"`
 }
 
-func NewField(title string) Field {
-	return Field{
+func NewField(title string) *Field {
+	return &Field{
 		Title: title,
 	}
 }
